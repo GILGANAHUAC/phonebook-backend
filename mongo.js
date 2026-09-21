@@ -9,7 +9,6 @@ const password = process.argv[2]
 const name = process.argv[3]
 const number = process.argv[4]
 
-// Aquí pegas tu URI real reemplazando <db_username> por tu usuario y añadiendo el nombre de la base de datos antes de los parámetros
 const url = `mongodb+srv://gilhit23_db_user:${password}@cluster0.boofbem.mongodb.net/phonebookApp?retryWrites=true&w=majority&appName=Cluster0`
 
 mongoose.set('strictQuery', false)
@@ -36,7 +35,7 @@ if (process.argv.length === 3) {
     number: number,
   })
 
-  person.save().then(result => {
+  person.save().then(() => {
     console.log(`added ${name} number ${number} to phonebook`)
     mongoose.connection.close()
   })
